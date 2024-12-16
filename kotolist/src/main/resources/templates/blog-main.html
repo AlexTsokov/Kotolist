@@ -8,12 +8,13 @@
 <body>
 <header th:insert="~{blocks/header :: header}"></header>
 <div class="container mt-5">
-    <h1>Блог Котолиста</h1>
-    <div th:each="post : ${posts}" class="alert alert-info mt-2">
-       <h3 th:text="${post.title}"/>
-        <p th:text="${post.anons}"></p>
-        <p th:text="Проcмотры- + ${post.views}"></p>
-   <a th:href="'/blog/' + ${post.id}">Прочитать</a>
+    <h1>Блог Котолиста</h1><br>
+    <div th:each="postCat : ${posts}" class="alert alert-info mt-2">
+       <h3 th:text="${postCat.tittle}"/>
+        <p th:text="${postCat.anons}"></p>
+        <p><b>Порода:</b> <span th:text="${postCat.catbreed}"/></p>
+        <p><b>Проcмотры:</b> <span th:text="${postCat.views}"/></p>
+   <a th:href="'/blog/' + ${postCat.id}" class="btn btn-warning">Подробнее о коте</a>
     </div>
 </div>
 <div th:insert="~{blocks/footer :: footer}"></div>
